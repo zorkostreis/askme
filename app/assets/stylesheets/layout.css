@@ -1,0 +1,17 @@
+body {
+  background: #f2dec9f0;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 40px;
+  width: 100%;
+}
+
+.container {
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+}
