@@ -1,0 +1,15 @@
+.message {
+  border-radius: 5px;
+  border: 1px solid #d0d0d0;
+  padding: 10px 15px;
+}
+
+.message-notice {
+  background-color: #f5f4e8;
+  border-color: #f0b78f;
+}
+
+.message-alert {
+  background-color: #ffd2d2;
+  border-color: #d00000;
+}
