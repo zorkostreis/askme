@@ -1,5 +1,5 @@
 body {
-  background: #f2dec9f0;
+  background: #f0e6d1d6;
   display: flex;
   justify-content: center;
 }
@@ -12,6 +12,31 @@ body {
 
 .container {
   background: #fff;
-  border-radius: 5px;
+}
+
+.container,
+.navbar {
   padding: 20px;
+}
+  
+.navbar {
+  background-color: #3E503C;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.container-br {
+  border-radius: 5px;
+}
+
+.container-br-b {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

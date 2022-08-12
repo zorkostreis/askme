@@ -1,14 +1,14 @@
-<div class='container'>
+<div class='container container-br-b'>
   <p>
     <%= link_to 'Сoздать новый вопрос', new_question_path, class: 'button button-main' %>
   </p>
 
-  <%# <p class='mt'>
+  <p class='mt'>
     <%= render 'form', question: @question %>
-  <%# <p> %>
+  <p>
 </div>
 
-<div class='container mt-sm'>
+<div class='container mt-sm container-br'>
   <h2 class='title-lg'>
     <%= @questions.count %>
     <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
@@ -16,7 +16,7 @@
 </div>
 
 <% @questions.each do |question| %>
-  <div class='mt-sm container'>
+  <div class='mt-sm container container-br'>
     <%= render 'question', question: question %>
   </div>
 <% end %>

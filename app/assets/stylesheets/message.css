@@ -5,11 +5,11 @@
 }
 
 .message-notice {
-  background-color: #f5f4e8;
-  border-color: #f0b78f;
+  background-color: #f8f8f7;
+  border-color: #B7B7A4;
 }
 
 .message-alert {
-  background-color: #ffd2d2;
-  border-color: #d00000;
+  background-color: #f6ded3;
+  border-color: #dd6f3c;
 }

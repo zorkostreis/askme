@@ -2,6 +2,7 @@
   border: 0;
   border-radius: 3px;
   color: #fff;
+  cursor: pointer;
   display: inline-block;
   font-size: 14px;
   padding: 8px 13px 7px;
@@ -9,5 +10,9 @@
 }
 
 .button-main {
-  background-color: #45917e;
+  background-color: #ce9475;
+}
+
+.button-navbar {
+  background-color: #949C81;
 }
