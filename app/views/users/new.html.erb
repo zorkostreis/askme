@@ -1,9 +1,11 @@
 <div class='container container-br-b'>
-  <h2 class='title'>Присоединяйся и спрашивай</h2>
+  <h2 class='title'>Регистрация</h2>
+
+  <%= render 'errors', errors: @user.errors if @user.errors.any? %>
 
   <div class='mt'>
-    <%= form_with model: @user do |form| %>
-      <p><%= form.label :name, 'Выше имя' %></p>
+    <%= form_with model: @user, data: {turbo: false} do |form| %>
+      <p><%= form.label :name, 'Имя' %></p>
       <p><%= form.text_field :name, class: 'form-text-field' %></p>
 
       <p class='mt'><%= form.label :nickname, 'Никнейм на сайте' %></p>
@@ -14,6 +16,9 @@
 
       <p class='mt'><%= form.label :password %></p>
       <p><%= form.password_field :password, class: 'form-text-field' %></p>
+
+      <p class='mt'><%= form.label :password_confirmation %></p>
+      <p><%= form.password_field :password_confirmation, class: 'form-text-field' %></p>
 
       <p class='mt-lg'><%= form.submit 'Зарегистрироваться', class: 'button button-main' %></p>
     <% end %>

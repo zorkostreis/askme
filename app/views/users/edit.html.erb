@@ -1,0 +1,34 @@
+<div class='container'>
+  <h2 class='title'>Редактирование пользователя</h2>
+
+  <%= render 'errors', errors: @user.errors if @user.errors.any? %>
+
+  <%= form_with model: @user, data: {turbo: false} do |form| %>
+    <p><%= form.label :name, 'Имя' %></p>
+    <p><%= form.text_field :name, class: 'form-text-field' %></p>
+
+    <p class='mt'><%= form.label :nickname, 'Никнейм на сайте' %></p>
+    <p><%= form.text_field :nickname, class: 'form-text-field' %></p>
+
+    <p class='mt-lg text-sm'> Если не хотите менять пароль - оставьте эти поля пустыми</p>
+    
+    <p class='mt'><%= form.label :password %></p>
+    <p><%= form.password_field :password, class: 'form-text-field' %></p>
+
+    <p class='mt'><%= form.label :password_confirmation %></p>
+    <p><%= form.password_field :password_confirmation, class: 'form-text-field' %></p>
+
+    <p class='mt-lg'>
+      <%= form.submit 'Сохранить', class: 'button button-main' %>
+      <span class='text-sm'>или <%= link_to 'вернуться', :back %></span>
+    </p>
+  <% end %>
+
+  <div class='mt-lg'>
+    <%= button_to 'Удалить профиль', user_path(@user),
+      method: :delete,
+      form: {data: {turbo_confirm: 'Вы точно хотите удалить свой профиль?'}},
+      class: 'text-red text-sm'
+    %>
+  </div>
+</div>
