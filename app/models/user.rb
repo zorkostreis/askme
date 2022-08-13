@@ -1,14 +1,18 @@
 class User < ApplicationRecord
   has_secure_password
 
-  before_save :downcase_nickname
+  before_validation :downcase_nickname, :downcase_email
 
-  validates :email, presence: true, uniqueness: true,
-    format: { with:  URI::MailTo::EMAIL_REGEXP, message: 'wrong email format' }
-  validates :nickname, length: 3..40, uniqueness: true,
-    format: { with: /\A[a-zA-Z0-9_]+\z/, message: 'only allows letters, numbers and _' }
+  validates :email, presence: true, uniqueness: true, format: { with:  URI::MailTo::EMAIL_REGEXP }
+  validates :nickname, uniqueness: true, length: 3..40, format: { with: /\A[a-zA-Z0-9_]+\z/ }
+
+  private
 
   def downcase_nickname
     nickname.downcase!
+  end
+
+  def downcase_email
+    email.downcase!
   end
 end
