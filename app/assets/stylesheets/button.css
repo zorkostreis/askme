@@ -9,6 +9,10 @@
   text-decoration: none;
 }
 
+.button:hover {
+  opacity: .8;
+}
+
 .button-main {
   background-color: #ce9475;
 }
