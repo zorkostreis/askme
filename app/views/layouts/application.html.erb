@@ -12,16 +12,17 @@
 
   <body>
     <div class='wrapper'>
-      <div class='navbar'>
+      <div class='navbar' style='background-color: <%= session[:color] %>'>
         <p class='title-sm text-bold'><%= link_to 'Ask me!', root_path %></p>
         <div>
           <% if current_user.present? %>
             <%= content_tag 'span', display_nickname(current_user), class: 'mr-sm' %>
-            <%= button_to 'Выйти', session_path, method: :delete, class: 'button button-navbar' %>
+            <%= button_to 'Выйти', session_path, method: :delete, class: 'text-logout mr-sm' %>
           <% else %>
             <%= link_to 'Регистрация', new_user_path, class: 'button button-navbar mr-sm' %>
-            <%= link_to 'Вход', new_session_path, class: 'button button-navbar' %>
+            <%= link_to 'Вход', new_session_path, class: 'button button-navbar mr-sm' %>
           <% end %>
+          <%= link_to 'Цвет шапки', edit_session_path, class: 'button button-navbar' %>
         </div>
       </div>
 

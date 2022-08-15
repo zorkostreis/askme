@@ -23,4 +23,10 @@ class SessionsController < ApplicationController
 
     redirect_to root_path, notice: 'Вы вышли из аккаунта'
   end
+
+  def update
+    session[:color] = params.require(:session)[:color]
+
+    redirect_to root_path, notice: 'Вы изменили цвет шапки'
+  end
 end
