@@ -20,11 +20,14 @@ body {
 }
   
 .navbar {
-  background-color: #3E503C;
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.navbar-default {
+  background-color: #3E503C;
 }
 
 .navbar a {
