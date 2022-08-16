@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with:  URI::MailTo::EMAIL_REGEXP }
   validates :nickname, uniqueness: true, length: 3..40, format: { with: /\A[a-zA-Z0-9_]+\z/ }
 
+  has_many :questions, dependent: :delete_all
+
   private
 
   def downcase_nickname

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[edit update destroy]
+  before_action :set_user, only: %i[edit update destroy show]
+  before_action :authorize_user, only: %i[edit update destroy]
 
   def new
     @user = User.new
@@ -40,12 +41,21 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: 'Пользователь удалён'
   end
 
+  def show
+    @questions = @user.questions.order(created_at: :desc)
+    @question = Question.new(user: @user)
+  end
+
   private
 
   def user_params
     params.require(:user).permit(
       :name, :nickname, :email, :password, :password_confirmation, :color
     )
+  end
+
+  def authorize_user
+    redirect_with_alert unless current_user == @user
   end
 
   def set_user

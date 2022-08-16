@@ -1,0 +1,19 @@
+.user-box {
+  align-items: center;
+  background-color: #b0b7a0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-box a {
+  color: #fff;
+}
+
+.no-message-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
