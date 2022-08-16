@@ -40,3 +40,7 @@ button {
 .text-bold {
   font-weight: bold;
 }
+
+.text-logout {
+  color: #fff;
+}
