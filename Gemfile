@@ -6,6 +6,7 @@ ruby '3.0.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'font-awesome-rails'
+gem 'friendly_id', '~> 5.4.0'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'puma', '~> 5.0'
