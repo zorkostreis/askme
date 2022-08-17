@@ -1,19 +1,42 @@
-.user-box {
-  align-items: center;
-  background-color: #b0b7a0;
-  color: #fff;
+.users-box {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
-.user-box a {
-  color: #fff;
+.users-box-user {
+  flex-basis: 100px;
+  flex-grow: 0;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
 }
 
-.no-message-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
+.users-box-user a {
+  color: #fff;
+  text-decoration: none;
 }
+
+.users-box-user-bg-0 {
+  background: #a76e6e;
+}
+
+.users-box-user-bg-1 {
+  background: rgb(219, 162, 88);
+}
+
+.users-box-user-bg-2 {
+  background: rgb(146, 107, 147);
+}
+
+.users-box-user-bg-3 {
+  background: rgb(131, 173, 148);
+}
+
+.users-box-user-bg-4 {
+  background: rgb(104, 107, 155);
+}
+
+
+
+

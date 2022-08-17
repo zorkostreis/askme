@@ -1,0 +1,5 @@
+<% if question.author.present? %>
+  <span>от <%= link_to display_nickname(question.author), user_path(question.author) %></span>
+<% else %>
+  <span>от анонима</span>
+<% end %>
