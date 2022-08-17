@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: .8em;
 }
 
 .users-box-user {
@@ -18,25 +19,21 @@
 }
 
 .users-box-user-bg-0 {
-  background: #a76e6e;
+  border: 3px solid #a76e6e;
 }
 
 .users-box-user-bg-1 {
-  background: rgb(209, 164, 104);
+  border: 3px solid rgb(209, 164, 104);
 }
 
 .users-box-user-bg-2 {
-  background: rgb(146, 107, 147);
+  border: 3px solid rgb(146, 107, 147);
 }
 
 .users-box-user-bg-3 {
-  background: rgb(131, 173, 148);
+  border: 3px solid rgb(131, 173, 148);
 }
 
 .users-box-user-bg-4 {
-  background: rgb(104, 107, 155);
+  border: 3px solid rgb(104, 107, 155);
 }
-
-
-
-

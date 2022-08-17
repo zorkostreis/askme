@@ -1,5 +1,11 @@
 <div class='container container-br-b'>
-  <h2 class='title'>Редактирование пользователя</h2>
+  <h2 class='title'>Редактировать профиль</h2>
+
+  <div class='mt'>
+    <p><%= image_tag @user.gravatar_url, title: display_nickname(@user), class: 'rounded' %>
+    <p class='text-sm mt mb'>Чтобы добавить или поменять аватар - зарегистрируйтесь на
+      <%= link_to 'Gravatar', 'https://gravatar.com' %> и загрузите фото</p>
+  </div>
 
   <%= render 'errors', errors: @user.errors if @user.errors.any? %>
 
@@ -10,7 +16,7 @@
     <p class='mt'><%= form.label :nickname, 'Никнейм на сайте' %></p>
     <p><%= form.text_field :nickname, class: 'form-text-field' %></p>
 
-    <p><%= form.label :color %></p>
+    <p class='mt'><%= form.label :color, 'Цвет шапки' %></p>
     <p><%= form.color_field :color %></p>
 
     <p class='mt-lg text-sm'> Если не хотите менять пароль - оставьте эти поля пустыми</p>
