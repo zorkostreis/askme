@@ -29,6 +29,10 @@
 <% if @questions.any? %>
   <% @questions.each do |question| %>
     <div class='mt-sm container container-br'>
+      <div class='text-sm mb-sm text-grey'>
+        <span>вопрос <%= link_to "##{question.id}", question_path(question) %></span>
+        <%= render 'questions/author', question: question %>
+      </div>
       <%= render question %>
     </div>
   <% end %>
