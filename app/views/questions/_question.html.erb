@@ -16,9 +16,7 @@
   <% if current_user == question.user %>
     <div>
       <% edit_icon = question.answer.present? ? 'pencil' : 'reply' %>
-      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :put,
-        title: 'Скрыть вопрос', class: 'mr-sm' unless question.hidden? %>
-      <%= link_to fa_icon(edit_icon), edit_question_path(question), title: 'Изменить вопрос', class: 'mr-sm' %>
+      <%= link_to fa_icon(edit_icon), edit_question_path(question), title: 'Ответить на вопрос', class: 'mr-sm' %>
       <%= button_to fa_icon('trash-o'), question_path(question), form: {data: {turbo_confirm: 'Точно удалить вопрос?'}},
         method: :delete, title: 'Удалить вопрос' %>
     </div>

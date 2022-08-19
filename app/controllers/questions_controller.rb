@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :ensure_current_user, only: %i[update destroy edit hide]
-  before_action :set_question_for_current_user, only: %i[update destroy edit hide]  
+  before_action :ensure_current_user, only: %i[update destroy edit]
+  before_action :set_question_for_current_user, only: %i[update destroy edit]  
   
   def create
     question_params = params.require(:question).permit(:body, :user_id)
@@ -52,12 +52,6 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-  end
-
-  def hide
-    @question.update(hidden: true)
-
-    redirect_to question_path(@question)
   end
 
   private
