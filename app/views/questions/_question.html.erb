@@ -1,16 +1,21 @@
 <div class='mb-sm'>
-  <%= simple_format h(question.body) %>
+  <%= raw(render_with_links(question.body)) %>
+  <%# <%= simple_format h(question.body) %> 
 </div>
 
 <% if question.answer.present? %>
   <div class='mb-sm text-answer'>
-    <%= question.answer %>
+    <%= raw(render_with_links(question.answer))%>
   </div>
 <% end %>
 
 <div class='text-sm question-footer'>
   <div class='text-grey'>
     <%= l(question.created_at, format: :short) %>
+    
+    <% question.hashtags.each do |hashtag| %>
+      <%= link_to display_hashtag(hashtag), hashtag_path(hashtag) %>
+    <% end %>
   </div>
 
   <% if current_user == question.user %>

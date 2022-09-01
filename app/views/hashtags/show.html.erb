@@ -1,0 +1,16 @@
+<div class='container mt-sm container-br'>
+  <h2 class='title-lg'>
+    <%= display_hashtag(@hashtag) %>
+  </h2>
+</div>
+
+<% @questions.each do |question| %>
+  <div class='mt-sm container container-br'>
+    <div class='text-sm mb-sm text-grey'>
+      <span>вопрос <%= link_to "##{question.id}", question_path(question) %></span>
+      <%= render partial: 'questions/author', locals: { question: question } %>
+      <span>для <%= link_to display_nickname(question.user), user_path(question.user) %></span>
+    </div>
+    <%= render question %>
+  </div>
+<% end %>
