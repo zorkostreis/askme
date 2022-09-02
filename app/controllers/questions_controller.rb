@@ -9,14 +9,6 @@ class QuestionsController < ApplicationController
     @question.author = current_user
 
     if @question.save
-      hashtag_names = find_hashtags(@question.body)
-
-      hashtag_names.each do |hashtag_name|
-        hashtag = Hashtag.find_or_create_by(name: hashtag_name)
-
-        QuestionHashtag.create(question_id: @question.id, hashtag_id: hashtag.id)    
-      end
-  
       redirect_to user_path(@question.user), notice: 'Новый вопрос создан'
     else
       flash.now[:alert] = 'Не получилось создать вопрос'
@@ -29,24 +21,6 @@ class QuestionsController < ApplicationController
     question_params = params.require(:question).permit(:body, :answer)
 
     if @question.update(question_params)
-      hashtag_names = find_hashtags("#{@question.body} #{@question.answer}")
-
-      added_hashtags = hashtag_names - @question.hashtags.map(&:name)
-
-      added_hashtags.each do |added_hashtag|
-        hashtag = Hashtag.find_or_create_by(name: added_hashtag)
-
-        QuestionHashtag.create(question_id: @question.id, hashtag_id: hashtag.id)    
-      end
-
-      removed_hashtags = @question.hashtags.map(&:name) - hashtag_names
-
-      removed_hashtags.each do |removed_hashtag|
-        hashtag = Hashtag.find_by(name: removed_hashtag)
-
-        @question.question_hashtags.find_by(hashtag_id: hashtag.id).destroy
-      end
-
       redirect_to user_path(@question.user), notice: 'Сохранили вопрос!'
     else
       flash.now[:alert] = 'Не получилось редактировать вопрос'
@@ -87,11 +61,5 @@ class QuestionsController < ApplicationController
 
   def set_question_for_current_user
     @question = current_user.questions.find(params[:id])
-  end
-
-  def find_hashtags(text)
-    text.scan(Hashtag::HASHTAG_REGEXP)
-        .map { |hashtag| hashtag.delete('#').downcase }
-        .uniq
   end
 end
