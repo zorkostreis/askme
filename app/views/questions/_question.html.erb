@@ -1,11 +1,10 @@
 <div class='mb-sm'>
-  <%= raw(render_with_links(question.body)) %>
-  <%# <%= simple_format h(question.body) %> 
+  <%= simple_format h(question.body) %>
 </div>
 
 <% if question.answer.present? %>
   <div class='mb-sm text-answer'>
-    <%= raw(render_with_links(question.answer))%>
+    <%= simple_format h(question.answer) %>
   </div>
 <% end %>
 
