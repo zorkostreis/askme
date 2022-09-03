@@ -9,6 +9,8 @@ class Question < ApplicationRecord
 
   after_save_commit :save_hashtags
 
+  private
+  
   def save_hashtags
     hashtag_names = find_hashtags("#{body} #{answer}")
 
